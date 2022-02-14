@@ -1,0 +1,30 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+.game {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 100%;
+	gap: 5px;
+	margin-inline: auto;
+	width: 30rem;
+}
+
+.row {
+	display: flex;
+	flex-direction: row;
+	height: 62px;
+	gap: 5px;
+}
+
+.letter {
+	flex-direction: row;
+	width: 62px;
+	background-color: #585959;
+}
