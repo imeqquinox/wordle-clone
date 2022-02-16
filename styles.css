@@ -3,6 +3,17 @@ body {
 	margin: 0;
 	padding: 0;
 	height: 100%;
+	background-color: #0fa2a9;
+}
+
+.board__container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 100%;
+	margin-inline: auto;
+	width: 30rem;
 }
 
 .game {
@@ -12,8 +23,6 @@ body {
 	flex-direction: column;
 	height: 100%;
 	gap: 5px;
-	margin-inline: auto;
-	width: 30rem;
 }
 
 .row {
@@ -27,4 +36,18 @@ body {
 	flex-direction: row;
 	width: 62px;
 	background-color: #585959;
+}
+
+.keyboard__container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: absolute;
+	bottom: 0;
+	padding-bottom: 50px;
+}
+
+.non-active {
+	background-color: white;
+	border: 2px solid #585959;
 }
