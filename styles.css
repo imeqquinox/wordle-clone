@@ -33,9 +33,14 @@ body {
 }
 
 .letter {
-	flex-direction: row;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	width: 62px;
 	background-color: #585959;
+
+	transition: transform 0.6s;
+	transform-style: preserve-3d;
 }
 
 .keyboard__container {
@@ -50,4 +55,21 @@ body {
 .non-active {
 	background-color: white;
 	border: 2px solid #585959;
+}
+
+.active-correct {
+	background-color: #14c700;
+	transform: rotateY(180deg);
+}
+
+.active-correct text {
+	transform: rotateY(180deg);
+}
+
+.active-wrong {
+	background-color: #585959;
+}
+
+.active-wrongplace {
+	background-color: #ebd31e;
 }
