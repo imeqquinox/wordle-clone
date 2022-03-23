@@ -4,13 +4,16 @@ let randomWord;
 let i = Math.floor(Math.random() * wordData.length);
 randomWord = wordData[i];
 randomWord = randomWord.toUpperCase();
-console.log(randomWord);
 
 const maxAttempts = 5;
 let currentAttempts = 0;
 let guessedWord = ""; 
 let guessArray = [];
-let keyIndex = 0;
+
+// Replay button 
+document.getElementById("replay").addEventListener("click", (event) => {
+    Reset();
+})
 
 // Keydown event
 document.addEventListener('keydown', (event) => {     
@@ -48,10 +51,14 @@ botChildrenKey.forEach(item => {
 
 // Handle keyboard input
 function Input(event) {
+    
     // Stop entering or deleting outside the array length; 
     if (guessArray.length < 0 || guessArray.length > 5) {
-        console.log("return here?");
-        return; 
+        if (guessArray.length > 5) {
+            guessArray.pop();
+        } else {
+            return; 
+        }
     }
     
     // Check if the user is guessing
@@ -63,7 +70,6 @@ function Input(event) {
             Win();
         } else {
             // Reset vars for new attempt
-            keyIndex = 0;
             currentAttempts++;
             CheckGuess();
             UpdateRow();
@@ -73,7 +79,6 @@ function Input(event) {
     // Delete letters
     if (event === "Backspace" ) { 
         guessArray.pop(); 
-        keyIndex--;
         UpdateText();
     }
 
@@ -88,7 +93,6 @@ function Input(event) {
     event.toUpperCase();
     guessArray.push(event);
     UpdateText();
-    keyIndex++;
 }
 
 // Get row elements for guess
@@ -147,7 +151,11 @@ function CheckGuess() {
         }
     }
 
-    // Check letters
+    // Check for lose
+    if (currentAttempts >= 6) {
+        Lose();
+        return;
+    }
 
     // Reset array for next guess 
     guessArray = [];
@@ -159,6 +167,66 @@ function Win() {
         rowElem[i].classList.add("active-correct");
     }
 
-    let temp = document.querySelector(".win_screen");
-    temp.classList.add("active");
+    let popUp = document.querySelector(".popup_screen");
+    popUp.classList.add("active");
+
+    let popUpText = document.querySelector(".popup_text");
+    popUpText.innerHTML += "<h2>You win!</h2><br>";
+}
+
+function Lose() {
+    let popUp = document.querySelector(".popup_screen");
+    popUp.classList.add("active");
+
+    let popUpText = document.querySelector(".popup_text");
+    popUpText.innerHTML += "<h2>You lose.</h2><br><span>The word was: " + randomWord + "</span>";
+}
+
+// Restart game
+function Reset() {
+    // New random word
+    let i = Math.floor(Math.random() * wordData.length);
+    randomWord = wordData[i];
+    randomWord = randomWord.toUpperCase();
+    currentAttempts = 0;
+    guessedWord = ""; 
+    guessArray = [];
+
+    // Reset text in grid
+    for (let i = 0; i < maxAttempts + 1; i++) {
+        let rowElem = document.getElementById(i).children; 
+        for (let j = 0; j < rowElem.length; j++) {
+            rowElem[j].childNodes[0].innerHTML = "";
+            rowElem[j].classList.add("non-active");
+            rowElem[j].classList.remove("active-wrong");
+            rowElem[j].classList.remove("active-wrongplace");
+            rowElem[j].classList.remove("active-correct");
+        }
+    }
+
+    // Reset keyboard colour
+    let topChildrenKey = topKeyContainer.querySelectorAll(":scope > .key");
+    topChildrenKey.forEach(item => { 
+        item.classList.remove("correct");
+        item.classList.remove("wrong-place");
+        item.classList.remove("wrong");
+    });
+
+    let midChildrenKey = midKeyContainer.querySelectorAll(":scope > .key");
+    midChildrenKey.forEach(item => {
+        item.classList.remove("correct");
+        item.classList.remove("wrong-place");
+        item.classList.remove("wrong"); 
+    });
+
+    let botChildrenKey = botKeyContainer.querySelectorAll(":scope > .key");
+    botChildrenKey.forEach(item => { 
+        item.classList.remove("correct");
+        item.classList.remove("wrong-place");
+        item.classList.remove("wrong"); 
+    });
+
+    // Remove win/lose popup
+    let popUp = document.querySelector(".popup_screen");
+    popUp.classList.remove("active");
 }
