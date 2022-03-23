@@ -51,7 +51,11 @@ botChildrenKey.forEach(item => {
 
 // Handle keyboard input
 function Input(event) {
-    
+    // Stop enter re-guess if on win/lose screen
+    if (currentAttempts >= 6) {
+        return
+    }
+
     // Stop entering or deleting outside the array length; 
     if (guessArray.length < 0 || guessArray.length > 5) {
         if (guessArray.length > 5) {
@@ -171,7 +175,7 @@ function Win() {
     popUp.classList.add("active");
 
     let popUpText = document.querySelector(".popup_text");
-    popUpText.innerHTML += "<h2>You win!</h2><br>";
+    popUpText.innerHTML = "<h2>You win!</h2><br>";
 }
 
 function Lose() {
@@ -179,7 +183,7 @@ function Lose() {
     popUp.classList.add("active");
 
     let popUpText = document.querySelector(".popup_text");
-    popUpText.innerHTML += "<h2>You lose.</h2><br><span>The word was: " + randomWord + "</span>";
+    popUpText.innerHTML = "<h2>You lose.</h2><br><span>The word was: " + randomWord + "</span>";
 }
 
 // Restart game
@@ -229,4 +233,6 @@ function Reset() {
     // Remove win/lose popup
     let popUp = document.querySelector(".popup_screen");
     popUp.classList.remove("active");
+
+    UpdateRow();
 }
