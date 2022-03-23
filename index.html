@@ -9,87 +9,91 @@
     <title>Not Wordle</title>
 </head>
 <body>
-    <div class="board__container">
+    <div class="board_container">
         <h1>Not Wordle</h1>
         <div class="game">
-            <div class="row" id="0"> 
-                <div class="letter non-active"></div>
-                <div class="letter non-active"></div>
-                <div class="letter non-active"></div>
-                <div class="letter non-active"></div>
-                <div class="letter non-active"></div>
+            <div class="game_row" id="0"> 
+                <div class="letter non-active"><b></b></div>
+                <div class="letter non-active"><b></b></div>
+                <div class="letter non-active"><b></b></div>
+                <div class="letter non-active"><b></b></div>
+                <div class="letter non-active"><b></b></div>
             </div>
-            <div class="row" id="1">
-                <div class="letter non-active"></div>
-                <div class="letter non-active"></div>
-                <div class="letter non-active"></div>
-                <div class="letter non-active"></div>
-                <div class="letter non-active"></div>
+            <div class="game_row" id="1">
+                <div class="letter non-active"><b></b></div>
+                <div class="letter non-active"><b></b></div>
+                <div class="letter non-active"><b></b></div>
+                <div class="letter non-active"><b></b></div>
+                <div class="letter non-active"><b></b></div>
             </div>
-            <div class="row" id="2">
-                <div class="letter non-active"></div>
-                <div class="letter non-active"></div>
-                <div class="letter non-active"></div>
-                <div class="letter non-active"></div>
-                <div class="letter non-active"></div>
+            <div class="game_row" id="2">
+                <div class="letter non-active"><b></b></div>
+                <div class="letter non-active"><b></b></div>
+                <div class="letter non-active"><b></b></div>
+                <div class="letter non-active"><b></b></div>
+                <div class="letter non-active"><b></b></div>
             </div>
-            <div class="row" id="3">
-                <div class="letter non-active"></div>
-                <div class="letter non-active"></div>
-                <div class="letter non-active"></div>
-                <div class="letter non-active"></div>
-                <div class="letter non-active"></div>
+            <div class="game_row" id="3">
+                <div class="letter non-active"><b></b></div>
+                <div class="letter non-active"><b></b></div>
+                <div class="letter non-active"><b></b></div>
+                <div class="letter non-active"><b></b></div>
+                <div class="letter non-active"><b></b></div>
             </div>
-            <div class="row" id="4">
-                <div class="letter non-active"></div>
-                <div class="letter non-active"></div>
-                <div class="letter non-active"></div>
-                <div class="letter non-active"></div>
-                <div class="letter non-active"></div>
+            <div class="game_row" id="4">
+                <div class="letter non-active"><b></b></div>
+                <div class="letter non-active"><b></b></div>
+                <div class="letter non-active"><b></b></div>
+                <div class="letter non-active"><b></b></div>
+                <div class="letter non-active"><b></b></div>
             </div>
-            <div class="row" id="5">
-                <div class="letter non-active"></div>
-                <div class="letter non-active"></div>
-                <div class="letter non-active"></div>
-                <div class="letter non-active"></div>
-                <div class="letter non-active"></div>
+            <div class="game_row" id="5">
+                <div class="letter non-active"><b></b></div>
+                <div class="letter non-active"><b></b></div>
+                <div class="letter non-active"><b></b></div>
+                <div class="letter non-active"><b></b></div>
+                <div class="letter non-active"><b></b></div>
             </div>
         </div>
 
-        <div class="keyboard__container">
-            <div class="top__row">
-                <button class="key">Q</button>
-                <button class="key">W</button>
-                <button class="key">E</button>
-                <button class="key">R</button>
-                <button class="key">T</button>
-                <button class="key">Y</button>
-                <button class="key">U</button>
-                <button class="key">I</button>
-                <button class="key">O</button>
-                <button class="key">P</button>
+        <div class="win_screen">
+            <span>Win!</span>
+        </div>
+
+        <div id="keyboard__container">
+            <div class="row" id="top">
+                <button class="key" id="KeyQ">Q</button>
+                <button class="key" id="KeyW">W</button>
+                <button class="key" id="KeyE">E</button>
+                <button class="key" id="KeyR">R</button>
+                <button class="key" id="KeyT">T</button>
+                <button class="key" id="KeyY">Y</button>
+                <button class="key" id="KeyU">U</button>
+                <button class="key" id="KeyI">I</button>
+                <button class="key" id="KeyO">O</button>
+                <button class="key" id="KeyP">P</button>
             </div>
-            <div class="middle__row">
-                <button class="key">A</button>
-                <button class="key">S</button>
-                <button class="key">D</button>
-                <button class="key">F</button>
-                <button class="key">G</button>
-                <button class="key">H</button>
-                <button class="key">J</button>
-                <button class="key">K</button>
-                <button class="key">L</button>
+            <div class="row" id="middle">
+                <button class="key" id="KeyA">A</button>
+                <button class="key" id="KeyS">S</button>
+                <button class="key" id="KeyD">D</button>
+                <button class="key" id="KeyF">F</button>
+                <button class="key" id="KeyG">G</button>
+                <button class="key" id="KeyH">H</button>
+                <button class="key" id="KeyJ">J</button>
+                <button class="key" id="KeyK">K</button>
+                <button class="key" id="KeyL">L</button>
             </div>
-            <div class="bottom__row">
-                <button class="key">Enter</button>
-                <button class="key">Z</button>
-                <button class="key">X</button>
-                <button class="key">C</button>
-                <button class="key">V</button>
-                <button class="key">B</button>
-                <button class="key">N</button>
-                <button class="key">M</button>
-                <button class="key">Delete</button>
+            <div class="row" id="bottom">
+                <button class="key" id="Enter">Enter</button>
+                <button class="key" id="KeyZ">Z</button>
+                <button class="key" id="KeyX">X</button>
+                <button class="key" id="KeyC">C</button>
+                <button class="key" id="KeyV">V</button>
+                <button class="key" id="KeyB">B</button>
+                <button class="key" id="KeyN">N</button>
+                <button class="key" id="KeyM">M</button>
+                <button class="key" id="Backspace">Delete</button>
             </div>
         </div>
     </div>
